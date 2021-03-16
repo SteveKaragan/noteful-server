@@ -4,12 +4,13 @@ const xss = require('xss')
 const NotesService = require('./notes-service')
 const notesRouter = express.Router()
 const jsonParser = express.json()
-//serialize needs to be looked at
+
 const serializeNote = note => ({
   id: note.id,
   name: xss(note.name),
   folder_id: note.folder_id,
-  content: note.content
+  content: note.content,
+  modified: note.modified
 })
 
 notesRouter
@@ -21,7 +22,7 @@ notesRouter
         res.json(notes.map(serializeNote))
       })
       .catch(next)
-  })//need to look at modified??  When is this added?
+  })
   .post(jsonParser, (req, res, next) => {
     const { name, folder_id, content } = req.body
     const newNote = { name, folder_id, content }

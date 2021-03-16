@@ -38,7 +38,6 @@ foldersRouter
         res
           .status(201)
           .location(`/folders/${folder.id}`)
-          //.location(req.originalURL  `/${folder.id}`)
           .json(folder)
       })
       .catch(next)
