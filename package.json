@@ -12,6 +12,9 @@
     "deploy": "git push heroku main"
   },
   "keywords": [],
+  "engines": {
+    "node": "15.10.0"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
